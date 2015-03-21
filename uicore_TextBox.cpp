@@ -129,7 +129,7 @@ namespace UICore
 
 	void TextBox::setText( const char *text )
 	{
-		int size = min( (unsigned int)(strlen(text)), bufferSize-1 );
+		int size = std::min( (unsigned int)(strlen(text)), bufferSize-1 );
 		memcpy( buffer, text, size );
 		buffer[size] = '\0';
 		cursorPosition = size;

@@ -99,8 +99,8 @@ namespace UICore
 			textSrc.w = strWidth - textSrc.x;
 		}
 
-		if ( textSrc.w + max(0.0f, textDest.x) > objectSrc.w - 2*marginX )
-			textSrc.w = objectSrc.w - marginX - max(0.0f, textDest.x);
+		if ( textSrc.w + std::max(0.0f, textDest.x) > objectSrc.w - 2*marginX )
+			textSrc.w = objectSrc.w - marginX - std::max(0.0f, textDest.x);
 			
 		textDest.x += objectDest.x;
 
@@ -132,8 +132,8 @@ namespace UICore
 			textSrc.h = strHeight - textSrc.y;
 		}
 
-		if ( textSrc.h + max(0.0f, textDest.y) > objectSrc.h - 2*marginY )
-			textSrc.h = objectSrc.h - 2*marginY - max(0.0f, textDest.y);
+		if ( textSrc.h + std::max(0.0f, textDest.y) > objectSrc.h - 2*marginY )
+			textSrc.h = objectSrc.h - 2*marginY - std::max(0.0f, textDest.y);
 			
 		textDest.y += objectDest.y;
 	}

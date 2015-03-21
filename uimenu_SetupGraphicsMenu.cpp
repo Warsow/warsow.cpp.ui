@@ -222,7 +222,7 @@ void SetupGraphicsMenu::UpdateGraphicsFields( void )
 	brightness->setCurValue( (int)UICore::round(Trap::Cvar_Value( "r_gamma" ) * 5.0f) );
 	texQuality->setCurValue( 16 - Trap::Cvar_Value( "r_picmip" ) ); 
 	skyQuality->setCurValue( ( Trap::Cvar_Int( "r_fastsky" ) ? 0 : 4 - Trap::Cvar_Value( "r_skymip" ) ) );
-	geometryLOD->setCurValue( 4 - max( Trap::Cvar_Value( "r_lodbias" ), Trap::Cvar_Value( "r_subdivisions" ) ) );
+	geometryLOD->setCurValue( 4 - std::max( Trap::Cvar_Value( "r_lodbias" ), Trap::Cvar_Value( "r_subdivisions" ) ) );
 }
 
 void SetupGraphicsMenu::UpdateGraphicsConfig()

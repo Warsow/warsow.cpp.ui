@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <list>
 #include <map>
 #include <string>
+#include <algorithm>
 
 #define UICORE_TYPE_PANEL			"Panel"
 #define UICORE_TYPE_LABEL			"Label"

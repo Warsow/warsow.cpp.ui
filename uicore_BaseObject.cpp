@@ -45,8 +45,8 @@ namespace UICore
 			if ( (*child)->isVisible() && (*child)->isEnabled() && (*child)->isClickable() )
 			{
 				r = (*child)->position;
-				r.w = max( 0.0f, min( (*child)->position.w, position.w - (*child)->position.x ) );
-				r.h = max( 0.0f, min( (*child)->position.h, position.h - (*child)->position.y ) );
+				r.w = std::max( 0.0f, std::min( (*child)->position.w, position.w - (*child)->position.x ) );
+				r.h = std::max( 0.0f, std::min( (*child)->position.h, position.h - (*child)->position.y ) );
 				if ( r.isPointInside( x, y ) )
 				{
 					(*child)->BaseMouseDown( x - (*child)->position.x, y - (*child)->position.y, button );
@@ -89,8 +89,8 @@ namespace UICore
 			if ( (*child)->isVisible() && (*child)->isEnabled() && (*child)->isClickable() )
 			{
 				r =(*child)->position;
-				r.w = max( 0.0f, min( (*child)->position.w, position.w - (*child)->position.x ) );
-				r.h = max( 0.0f, min( (*child)->position.h, position.h - (*child)->position.y ) );
+				r.w = std::max( 0.0f, std::min( (*child)->position.w, position.w - (*child)->position.x ) );
+				r.h = std::max( 0.0f, std::min( (*child)->position.h, position.h - (*child)->position.y ) );
 				if ( r.isPointInside( x, y ) )
 				{
 					(*child)->BaseMouseUp( x - (*child)->position.x, y - (*child)->position.y, button );
@@ -140,8 +140,8 @@ namespace UICore
 			if ( (*child)->isVisible() && (*child)->isEnabled() && (*child)->isClickable() )
 			{
 				r = (*child)->position;
-				r.w = max( 0.0f, min( (*child)->position.w, position.w - (*child)->position.x ) );
-				r.h = max( 0.0f, min( (*child)->position.h, position.h - (*child)->position.y ) );
+				r.w = std::max( 0.0f, std::min( (*child)->position.w, position.w - (*child)->position.x ) );
+				r.h = std::max( 0.0f, std::min( (*child)->position.h, position.h - (*child)->position.y ) );
 				if ( r.isPointInside( x, y ) )
 				{
 					(*child)->BaseMouseMove( x - (*child)->position.x, y - (*child)->position.y, xrel, yrel );
@@ -467,17 +467,17 @@ namespace UICore
 		{
 			if ( parentPosSrc )
 			{
-				posSrc.x = max( 0.0f, parentPosSrc->x - position.x );
-				posSrc.y = max( 0.0f, parentPosSrc->y - position.y );
-				posSrc.w = min( min( position.w - posSrc.x, parentPosSrc->w ), (parentPosSrc->x - posSrc.x) + parentPosSrc->w - position.x );
-				posSrc.h = min( min( position.h - posSrc.y, parentPosSrc->h ), (parentPosSrc->y - posSrc.y) + parentPosSrc->h - position.y );
+				posSrc.x = std::max( 0.0f, parentPosSrc->x - position.x );
+				posSrc.y = std::max( 0.0f, parentPosSrc->y - position.y );
+				posSrc.w = std::min( std::min( position.w - posSrc.x, parentPosSrc->w ), (parentPosSrc->x - posSrc.x) + parentPosSrc->w - position.x );
+				posSrc.h = std::min( std::min( position.h - posSrc.y, parentPosSrc->h ), (parentPosSrc->y - posSrc.y) + parentPosSrc->h - position.y );
 			}
 			else
 			{
-				posSrc.x = max( 0.0f, -position.x );
-				posSrc.y = max( 0.0f, -position.y );
-				posSrc.w = max( position.w - posSrc.x, parentPos->w - position.x );
-				posSrc.h = max( position.h - posSrc.y, parentPos->h - position.y );
+				posSrc.x = std::max( 0.0f, -position.x );
+				posSrc.y = std::max( 0.0f, -position.y );
+				posSrc.w = std::max( position.w - posSrc.x, parentPos->w - position.x );
+				posSrc.h = std::max( position.h - posSrc.y, parentPos->h - position.y );
 			}
 			posDest.x = parentPos->x + position.x;
 			posDest.y = parentPos->y + position.y;
@@ -491,8 +491,8 @@ namespace UICore
 		Rect rect;
 		float bwX, bwY;
 
-		bwX = max( 0.0f, min( posSrc.w, borderWidth / scaleX ) - posSrc.x );
-		bwY = max( 0.0f, min( posSrc.h, borderWidth / scaleY ) - posSrc.y );
+		bwX = std::max( 0.0f, std::min( posSrc.w, borderWidth / scaleX ) - posSrc.x );
+		bwY = std::max( 0.0f, std::min( posSrc.h, borderWidth / scaleY ) - posSrc.y );
 
 		rect.x = posSrc.x + bwX;
 		rect.y = posSrc.y + bwY;
@@ -530,8 +530,8 @@ namespace UICore
 			Rect s, d;
 			float bwX, bwY;
 
-			bwX = max( 0.0f, min( posSrc.w, borderWidth / scaleX ) - posSrc.x );
-			bwY = max( 0.0f, min( posSrc.h, borderWidth / scaleY ) - posSrc.y );
+			bwX = std::max( 0.0f, std::min( posSrc.w, borderWidth / scaleX ) - posSrc.x );
+			bwY = std::max( 0.0f, std::min( posSrc.h, borderWidth / scaleY ) - posSrc.y );
 
 			// Draw top border
 			s = posSrc, s.x += bwX, s.w -= bwX * 2, s.h = bwY;
@@ -577,8 +577,8 @@ namespace UICore
 		{
 			Rect r;
 			float bwX, bwY;
-			bwX = max( 0.0f, min( posSrc.w, borderWidth / scaleX ) - posSrc.x );
-			bwY = max( 0.0f, min( posSrc.h, borderWidth / scaleY ) - posSrc.y );
+			bwX = std::max( 0.0f, std::min( posSrc.w, borderWidth / scaleX ) - posSrc.x );
+			bwY = std::max( 0.0f, std::min( posSrc.h, borderWidth / scaleY ) - posSrc.y );
 			// Draw top
 			r.x = posDest.x + posSrc.x;
 			r.y = posDest.y + posSrc.y;

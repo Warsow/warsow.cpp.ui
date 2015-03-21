@@ -58,9 +58,7 @@ namespace UICore
 	extern BaseObject *focusedObject;
 	extern Panel *rootPanel;
 
-	template <typename T> inline T min( T a, T b ) { return (a < b ? a : b); }
-	template <typename T> inline T max( T a, T b ) { return (a > b ? a : b); }
-	template <typename T> inline T bound( T v, T min, T max ) { return (v < min ? min : (v > max ? max : v) ); }
+	template <typename T> inline T bound( T v, T b1, T b2 ) { return (v < b1 ? b1 : (v > b2 ? b2 : v) ); }
 	inline float round( float v ) { return (v - floor(v) < .5) ? floor(v) : ceil(v); }
 
 	/** Scale is needed to properly display borders */

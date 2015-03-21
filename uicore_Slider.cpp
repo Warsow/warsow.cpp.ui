@@ -114,7 +114,7 @@ namespace UICore
 	void Slider::doMinus( void )
 	{
 		int oldvalue = curvalue;
-		curvalue = max( minvalue, curvalue - buttonstep );
+		curvalue = std::max( minvalue, curvalue - buttonstep );
 		refreshCursor();
 		if ( oldvalue != curvalue && ValueChange )
 			ValueChange( this, oldvalue, curvalue );
@@ -123,7 +123,7 @@ namespace UICore
 	void Slider::doPlus( void )
 	{
 		int oldvalue = curvalue;
-		curvalue = min( maxvalue, curvalue + buttonstep );
+		curvalue = std::min( maxvalue, curvalue + buttonstep );
 		refreshCursor();
 		if ( oldvalue != curvalue && ValueChange )
 			ValueChange( this, oldvalue, curvalue );
@@ -132,7 +132,7 @@ namespace UICore
 	void Slider::doScrollMinus( void )
 	{
 		int oldvalue = curvalue;
-		curvalue = max( minvalue, curvalue - clickstep );
+		curvalue = std::max( minvalue, curvalue - clickstep );
 		refreshCursor();
 		if ( oldvalue != curvalue && ValueChange )
 			ValueChange( this, oldvalue, curvalue );
@@ -141,7 +141,7 @@ namespace UICore
 	void Slider::doScrollPlus( void )
 	{
 		int oldvalue = curvalue;
-		curvalue = min( maxvalue, curvalue + clickstep );
+		curvalue = std::min( maxvalue, curvalue + clickstep );
 		refreshCursor();
 		if ( oldvalue != curvalue && ValueChange )
 			ValueChange( this, oldvalue, curvalue );

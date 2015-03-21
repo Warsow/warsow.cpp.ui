@@ -213,7 +213,7 @@ namespace UICore
 		i = getItemPosition( focusedItem );
 
 		int scrollval = scrollbar->getCurValue();
-		if ( scrollval < max( i - int(itemsVisible) + 1, 0 ) )
+		if ( scrollval < std::max( i - int(itemsVisible) + 1, 0 ) )
 			scrollbar->setCurValue( i - int(itemsVisible) );
 		else if ( scrollval > i )
 			scrollbar->setCurValue( i );
@@ -250,14 +250,14 @@ namespace UICore
 	{
 		float listSize;
 		if ( horizontal )
-			listSize = max( 0.0f, getWidth() - 2 * getBorderWidth() );
+			listSize = std::max( 0.0f, getWidth() - 2 * getBorderWidth() );
 		else
-			listSize = max( 0.0f, getHeight() - 2 * getBorderWidth() );
+			listSize = std::max( 0.0f, getHeight() - 2 * getBorderWidth() );
 
 		if ( signed(items.size()) * itemSize > listSize )
 		{
-			scrollbar->setMaxValue( max( 0, signed(items.size()) - int(listSize / itemSize) - 1 ) );
-			scrollbar->setBarClickStepValue( max( 1, int(listSize / itemSize) - 1 ) );
+			scrollbar->setMaxValue( std::max( 0, signed(items.size()) - int(listSize / itemSize) - 1 ) );
+			scrollbar->setBarClickStepValue( std::max( 1, int(listSize / itemSize) - 1 ) );
 		}
 	}
 

@@ -175,7 +175,7 @@ void UIWsw::UI_Refresh( unsigned int time, int clientState, int serverState,
 
 	// draw cursor
 	if ( !Local::bind_grab )
-		Trap::R_DrawStretchPic( Local::cursorX, Local::cursorY , 32, 32, 
+		Trap::R_DrawStretchPic( Local::cursorX, Local::cursorY, 32, 32, 
 			0, 0, 1, 1, colorWhite, Trap::R_RegisterPic( UI_SHADER_CURSOR ) );
 
 	// TODO : fix enter sound
