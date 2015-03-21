@@ -22,6 +22,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #ifndef _UICORE_TYPES_H_
 #define _UICORE_TYPES_H_
 
+#ifdef min
+#undef min
+#endif
+#ifdef max
+#undef max
+#endif
+#ifdef bound
+#undef bound
+#endif
+
 #include <list>
 #include <map>
 #include <string>
